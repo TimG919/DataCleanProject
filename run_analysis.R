@@ -21,4 +21,4 @@ full_set$activity <- sub("1","walking",full_set$activity); full_set$activity <- 
 full_set$activity <- sub("3","walking downstairs",full_set$activity); full_set$activity <- sub("4","sitting",full_set$activity)
 full_set$activity <- sub("5","standing",full_set$activity); full_set$activity <- sub("6","laying",full_set$activity)
 
-test
+# ready for next step
