@@ -9,22 +9,138 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Codebook for Week 4 Project
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+###         Subject Field
+Numeric value ranging from 1 to 30 representing the volunteers age range 19 to 48.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+###         Activity Field
+Numeric value ranging from 1 to 6 representing 6 different activities performed the subjects.
+The descriptions listed replace the numbers in the raw dataset
 
-```{r cars}
-summary(cars)
-```
+      1 Walking
+      2 Walking_Upstairs
+      3 Walking_Downstairs
+      4 Sitting
+      5 Standing
+      6 Laying
 
-## Including Plots
+###         Matrix explaining the different values used in the 66 observations
 
-You can also embed plots, for example:
+The original values in the features.txt were converted using the format below to provide a more descriptive value than in the         orginal file. 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+      Body        body portion of acceleration signal using low pass Butterworth filter 
+                  with corner frequency of 0.3Hz
+                  
+      Freq        use of Fast Fourier Transform indicating frequency domain signals
+      Gravity     gravity portion of acceleration signal using low pass Butterworth filter with corner 
+                  frequency of 0.3Hz
+      
+      Acc         embedded accelerometer on the phone
+      
+      Gyro        embedded gyroscope on the phone
+      
+      time        method of how these measures were derived and captured at constant rate of 50hz.  
+                  Filtered using median filter and 3rd order low pass Butterworth filter with corner 
+                  frequency of 20Hz to remove noise.
+      
+      mean        mean of signal measurements captured
+      
+      stddev      standard deviation of the signal measurements captured
+      
+      Mag         magniutude of how signals were captured using Euclidean norm
+      
+      X           x axial of the 3 axis captured
+      
+      Y           y axial of the 3 axis captured
+      
+      Z           z axial of the 3 axis captured
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Values out of original 561 variables in features.txt file that were selected with the different values 
+used in providing descriptive names.
+      
+      Numbers shown below will need two added to match position in mergedSet as first 2 columns are 
+      subject and activity
+
+      1 timeBodyAccX_mean
+      2 timeBodyAccY_mean
+      3 timeBodyAccZ_mean
+      4 timeBodyAccX_stddev
+      5 timeBodyAccY_stddev
+      6 timeBodyAccZ_stddev
+      
+      41 timeGravityAccX_mean
+      42 timeGravityAccY_mean
+      43 timeGravityAccZ_mean
+      44 timeGravityAccX_stddev
+      45 timeGravityAccY_stddev
+      46 timeGravityAccZ_stddev
+      
+      81 timeBodyAccJerkX_mean
+      82 timeBodyAccJerkY_mean
+      83 timeBodyAccJerkZ_mean
+      84 timeBodyAccJerkX_stddev
+      85 timeBodyAccJerkY_stddev
+      86 timeBodyAccJerkZ_stddev
+      
+      121 timeBodyGyroX_mean
+      122 timeBodyGyroY_mean
+      123 timeBodyGyroZ_mean
+      124 timeBodyGyroX_stddev
+      125 timeBodyGyroY_stddev
+      126 timeBodyGyroZ_stddev
+      
+      161 timeBodyGyroJerkX_mean
+      162 timeBodyGyroJerkY_mean
+      163 timeBodyGyroJerkZ_mean
+      164 timeBodyGyroJerkX_stddev
+      165 timeBodyGyroJerkY_stddev
+      166 timeBodyGyroJerkZ_stddev
+      
+      201 timeBodyAccMag_mean
+      202 timeBodyAccMag_stddev
+      
+      214 timeGravityAccMag_mean
+      215 timeGravityAccMag_stddev
+      
+      227 timeBodyAccJerkMag_mean
+      228 timeBodyAccJerkMag_stddev
+      
+      240 timeBodyGyroMag_mean
+      241 timeBodyGyroMag_stddev
+      
+      253 timeBodyGyroJerkMag_mean
+      254 timeBodyGyroJerkMag_stddev
+      
+      266 frequencyBodyAccX_mean
+      267 frequencyBodyAccY_mean
+      268 frequencyBodyAccZ_mean
+      269 frequencyBodyAccX_stddev
+      270 frequencyBodyAccY_stddev
+      271 frequencyBodyAccZ_stddev
+      
+      345 frequencyBodyAccJerkX_mean
+      346 frequencyBodyAccJerkY_mean
+      347 frequencyBodyAccJerkZ_mean
+      348 frequencyBodyAccJerkX_stddev
+      349 frequencyBodyAccJerkY_stddev
+      350 frequencyBodyAccJerkZ_stddev
+      
+      424 frequencyBodyGyroX_mean
+      425 frequencyBodyGyroY_mean
+      426 frequencyBodyGyroZ_mean
+      427 frequencyBodyGyroX_stddev
+      428 frequencyBodyGyroY_stddev
+      429 frequencyBodyGyroZ_stddev
+      
+      503 frequencyBodyAccMag_mean
+      504 frequencyBodyAccMag_stddev
+      
+      516 frequencyBodyAccJerkMag_mean
+      517 frequencyBodyAccJerkMag_stddev
+      
+      529 frequencyBodyGyroMag_mean
+      530 frequencyBodyGyroMag_stddev
+      
+      542 frequencyBodyGyroJerkMag_mean
+      543 frequencyBodyGyroJerkMag_stddev

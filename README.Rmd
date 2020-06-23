@@ -9,22 +9,62 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+##      Instructions for use of run_analysis script
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+###         Actions prior to running script.
 
-```{r cars}
-summary(cars)
-```
+Extract data from zip file to project folder.  This is required so the read commands can find the data.
 
-## Including Plots
+###         Libraries used in script
+      
+Only the data.table library is used in this script.
+      
+###         Script breakdown
 
-You can also embed plots, for example:
+Step 1 marked by # 1 merge training and test data sets to create one data set
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+      3 files make up test data and are read into data frame
+      3 files make up train data and are read read into data frame
+      4 of the 6 files read have the column names set.  
+      the last 2 files will have the column names addressed later.
+      train and test data frames are merged and converted to data.table format.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Step 2 extract only measures on mean and standard deviation for each measurement.
+
+      561 fields are listed in extracted data UCI HAR Dataset folder file name features.text
+      Field positions 3 to 563 make up the mergedSet data frame and represent the data in the feature.txt file.
+            The numbers on the feature.txt file need 2 added to each to line up with the corresponding value in the data frame.
+      Update mergedSet data frame to only include mean and standard deviation measures.
+            The measures beginning with angle were not selected because they only contain a mean value.
+            They did not also have a standard deviation measure.
+            66 of 561 fields were selected representing the mean and standard deviation measures.
+            
+Step 3 set descriptive activity names for the activity column in the dataset.
+
+      activity names are listed in UCI HAR dataset folder file name activity_labels.txt
+      change field from character to number
+      replaced numeric values with activity names in activity_labels text file replacing _ with a space.  
+            These provide a clear description of the activity
+      
+Step 4 Appropriately labels the data set with descriptive variable names.
+
+      update field names from default values in mergedSet to descripive variable names.
+      additional details are in codebook for terms used in variable names.
+      used underscore before mean or stddev to make it more apparent what measure this represents
+      
+Step 5 using data set in step 4, creates a second, independent tidy data set with the average of each variable 
+for each activity and each subject.
+
+      in step 4 mergedSet has 68 columns (activity, subject and 66 measures)
+      melt function 
+            moves this to 4 columns (activity, subject, variable and value)
+                  where variable is the 66 different measures and value is what that field used to contain
+            resets data frame back to data.table format
+      data set is now in a tidy narrow format where each row represents an observation
+      summarize computes average of each variable for each activity and each subject
+      write function creates text file output with comma separated making it easier to read. 
+            default use of this adds a header to the output.
+      dimensions of summarize_data data frame is 4 columns and 118800 rows
+            this is a correct size based on 30 different subjects * 6 activities * 66 measures = 11880
+      
