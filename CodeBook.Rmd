@@ -144,3 +144,16 @@ used in providing descriptive names.
       
       542 frequencyBodyGyroJerkMag_mean
       543 frequencyBodyGyroJerkMag_stddev
+      
+###         Summaries of data in summarized.text output file from script.
+
+      colummns in summary file and summarized_data data.frame
+      
+      subject is integer column representing subjects 1 to 30
+      activity is character column representing the 6 different activities as outlined section on activity field
+      variable is factor column representing the 66 different measures capturing mean and standard deviation values
+      Average is numeric column representing either average of the mean or standard deviation values.
+      
+      This table summarizes by subject, activity and variable to provide output in requested format 
+      which is a tidy narrow format
+      
