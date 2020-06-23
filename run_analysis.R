@@ -106,7 +106,6 @@ names(mergedSet)[68] <- "frequencyBodyBodyGyroJerkMag_stddev"
     #   5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable 
     #   for each activity and each subject.
     
-mergedSet2 <- as.data.table(melt(mergedSet, id = c("subject","activity"), measure.vars = c(3:68)))
-head(mergedSet2)
-summarized_data <- mergedSet2[, .(Average=mean(value)), by=.(subject,activity,variable)]
-
+mergedSet <- as.data.table(melt(mergedSet, id = c("subject","activity"), measure.vars = c(3:68)))
+summarized_data <- mergedSet[, .(Average=mean(value)), by=.(subject,activity,variable)]
+write.table(summarized_data,"summarized.txt", row.names=FALSE,sep = ",")
